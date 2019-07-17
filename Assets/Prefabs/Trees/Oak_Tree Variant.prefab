@@ -1,0 +1,101 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!136 &209715921780715121
+CapsuleCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4638775300705350179}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  m_Radius: 0.006
+  m_Height: 0.06
+  m_Direction: 2
+  m_Center: {x: 0.00041702855, y: -0.0009605505, z: 0.026472842}
+--- !u!114 &4948981928683495996
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4638775300705350179}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 54432f0f8ea18c64bbf7e0e06f01a536, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  treeHealth: 200
+  oakTree: {fileID: 4638775300705350179, guid: 15f73c70724478b409ca5714053bce7e, type: 3}
+  palmTree: {fileID: 7954740066999377801, guid: d2b09f1d2664eb4448cc8b6f708520c3,
+    type: 3}
+  poplarTree: {fileID: 8505484112670856952, guid: 77ffd4d83fdab304aa04842c37e4d89a,
+    type: 3}
+--- !u!1001 &4638775300705252483
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 100000, guid: ccadaa4d0c1baf74492fc68cc1dfd7ad, type: 3}
+      propertyPath: m_Name
+      value: Oak_Tree Variant
+      objectReference: {fileID: 0}
+    - target: {fileID: 100000, guid: ccadaa4d0c1baf74492fc68cc1dfd7ad, type: 3}
+      propertyPath: m_TagString
+      value: Tree1
+      objectReference: {fileID: 0}
+    - target: {fileID: 400000, guid: ccadaa4d0c1baf74492fc68cc1dfd7ad, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 126.31132
+      objectReference: {fileID: 0}
+    - target: {fileID: 400000, guid: ccadaa4d0c1baf74492fc68cc1dfd7ad, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: -0.00000047683716
+      objectReference: {fileID: 0}
+    - target: {fileID: 400000, guid: ccadaa4d0c1baf74492fc68cc1dfd7ad, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 176.40437
+      objectReference: {fileID: 0}
+    - target: {fileID: 400000, guid: ccadaa4d0c1baf74492fc68cc1dfd7ad, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: -0.7071068
+      objectReference: {fileID: 0}
+    - target: {fileID: 400000, guid: ccadaa4d0c1baf74492fc68cc1dfd7ad, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 400000, guid: ccadaa4d0c1baf74492fc68cc1dfd7ad, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 400000, guid: ccadaa4d0c1baf74492fc68cc1dfd7ad, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 0.7071068
+      objectReference: {fileID: 0}
+    - target: {fileID: 400000, guid: ccadaa4d0c1baf74492fc68cc1dfd7ad, type: 3}
+      propertyPath: m_RootOrder
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 400000, guid: ccadaa4d0c1baf74492fc68cc1dfd7ad, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 400000, guid: ccadaa4d0c1baf74492fc68cc1dfd7ad, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 400000, guid: ccadaa4d0c1baf74492fc68cc1dfd7ad, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: ccadaa4d0c1baf74492fc68cc1dfd7ad, type: 3}
+--- !u!1 &4638775300705350179 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 100000, guid: ccadaa4d0c1baf74492fc68cc1dfd7ad,
+    type: 3}
+  m_PrefabInstance: {fileID: 4638775300705252483}
+  m_PrefabAsset: {fileID: 0}
