@@ -67,7 +67,7 @@ public class Turret : MonoBehaviour
             return;
         if(!isMenu) {
         selectedTurret = this.gameObject;
-        turretUI.SetActive(true);
+       // turretUI.SetActive(true);
 
         TurretModUI turretUIScript = GameObject.Find("GameManager").GetComponent<TurretModUI>();
         StartCoroutine(turretUIScript.CanCloseTurretUI());

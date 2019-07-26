@@ -12,26 +12,36 @@ public class MiningScript : MonoBehaviour
 
     float treeHealth;
 
-    
+    public bool canMine = true;
 
     Inventory inventory;
     ItemsRecieved itemsRecieved;
+
+    BuildHandler buildHandler;
     // Start is called before the first frame update
     void Start()
     {
         inventory = GameObject.Find("Player").GetComponent<Inventory>();
         itemsRecieved = GameObject.Find("GameManager").GetComponent<ItemsRecieved>();
+        buildHandler = GameObject.Find("GameManager").GetComponent<BuildHandler>();
     }
 
     // Update is called once per frame
     void Update()
     {
-
+        if(buildHandler.currentPlaceableObject == null)
+        {
+            canMine = true;
+        } else
+        {
+            canMine = false;
+        }
 
 
 
         if(Input.GetMouseButtonDown(0))
         {
+            if(canMine) { 
             Vector3 origin = transform.position;
             Vector3 direction = transform.forward;
 
@@ -78,6 +88,8 @@ public class MiningScript : MonoBehaviour
 
 
                     Debug.Log(hit.collider.transform);
+
+                    }
                 }
             }
         }

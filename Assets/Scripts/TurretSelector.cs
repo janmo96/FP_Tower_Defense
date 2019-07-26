@@ -35,7 +35,7 @@ public class TurretSelector : MonoBehaviour
 
         turretModUI = GameObject.Find("GameManager").GetComponent<TurretModUI>();
 
-        originalMat = GameObject.Find("testflag").transform.Find("Plane001").gameObject.GetComponent<Renderer>().material;
+
 
 
         system = EventSystem.current;

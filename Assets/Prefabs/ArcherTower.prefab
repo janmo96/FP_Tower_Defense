@@ -1,19 +1,5 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
---- !u!64 &2285529875970650115
-MeshCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1556676775036933194}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Enabled: 1
-  serializedVersion: 3
-  m_Convex: 1
-  m_CookingOptions: 14
-  m_Mesh: {fileID: 4300000, guid: a39f520420d373141a6ef5cb596b0556, type: 3}
 --- !u!1 &2000659892083809279
 GameObject:
   m_ObjectHideFlags: 0
@@ -25,7 +11,10 @@ GameObject:
   - component: {fileID: 2326786489401326183}
   - component: {fileID: 9050862777624488657}
   - component: {fileID: 1753448106353861364}
-  m_Layer: 0
+  - component: {fileID: 991327978275145149}
+  - component: {fileID: 7068594926271494041}
+  - component: {fileID: 6908412251573969631}
+  m_Layer: 2
   m_Name: ArcherTower
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -88,9 +77,54 @@ CapsuleCollider:
   m_IsTrigger: 1
   m_Enabled: 1
   m_Radius: 0.74
-  m_Height: 3.92
+  m_Height: 4.07
   m_Direction: 1
-  m_Center: {x: 0, y: 1.29, z: 0}
+  m_Center: {x: 0, y: 1.24, z: 0}
+--- !u!114 &991327978275145149
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2000659892083809279}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fac0e5eb0d1b27b4385899fc53907f09, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  collisions: []
+--- !u!54 &7068594926271494041
+Rigidbody:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2000659892083809279}
+  serializedVersion: 2
+  m_Mass: 1
+  m_Drag: 0
+  m_AngularDrag: 0.05
+  m_UseGravity: 0
+  m_IsKinematic: 1
+  m_Interpolate: 0
+  m_Constraints: 0
+  m_CollisionDetection: 0
+--- !u!208 &6908412251573969631
+NavMeshObstacle:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2000659892083809279}
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Shape: 0
+  m_Extents: {x: 0.71, y: 2.125, z: 0.71}
+  m_MoveThreshold: 0.1
+  m_Carve: 1
+  m_CarveOnlyStationary: 1
+  m_Center: {x: 0, y: 1.35, z: 0}
+  m_TimeToStationary: 0.5
 --- !u!1 &8622225473724211034
 GameObject:
   m_ObjectHideFlags: 0
@@ -100,7 +134,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 589056942702001462}
-  m_Layer: 0
+  m_Layer: 2
   m_Name: FirePoint
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -131,6 +165,18 @@ PrefabInstance:
     - target: {fileID: 100004, guid: a39f520420d373141a6ef5cb596b0556, type: 3}
       propertyPath: m_Name
       value: Tower
+      objectReference: {fileID: 0}
+    - target: {fileID: 100004, guid: a39f520420d373141a6ef5cb596b0556, type: 3}
+      propertyPath: m_Layer
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 100000, guid: a39f520420d373141a6ef5cb596b0556, type: 3}
+      propertyPath: m_Layer
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 100002, guid: a39f520420d373141a6ef5cb596b0556, type: 3}
+      propertyPath: m_Layer
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 400004, guid: a39f520420d373141a6ef5cb596b0556, type: 3}
       propertyPath: m_LocalPosition.x
@@ -176,17 +222,23 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 2300000, guid: a39f520420d373141a6ef5cb596b0556, type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: 6095a9cc4b75a0340a5e4c664ddfd669, type: 2}
+    - target: {fileID: 2300002, guid: a39f520420d373141a6ef5cb596b0556, type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: 87ef94412ca58dc43bf97fee806819f3, type: 2}
+    - target: {fileID: 2300002, guid: a39f520420d373141a6ef5cb596b0556, type: 3}
+      propertyPath: m_Materials.Array.data[1]
+      value: 
+      objectReference: {fileID: 2100000, guid: 33d329057f47e2040b563a2130731091, type: 2}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: a39f520420d373141a6ef5cb596b0556, type: 3}
 --- !u!4 &1556676775036766316 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 400004, guid: a39f520420d373141a6ef5cb596b0556,
-    type: 3}
-  m_PrefabInstance: {fileID: 1556676775036900072}
-  m_PrefabAsset: {fileID: 0}
---- !u!1 &1556676775036933194 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 100002, guid: a39f520420d373141a6ef5cb596b0556,
     type: 3}
   m_PrefabInstance: {fileID: 1556676775036900072}
   m_PrefabAsset: {fileID: 0}

@@ -179,7 +179,7 @@ Rigidbody:
   m_IsKinematic: 0
   m_Interpolate: 0
   m_Constraints: 80
-  m_CollisionDetection: 0
+  m_CollisionDetection: 2
 --- !u!195 &4210543993032282565
 NavMeshAgent:
   m_ObjectHideFlags: 0
@@ -187,7 +187,7 @@ NavMeshAgent:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2421435215236478497}
-  m_Enabled: 1
+  m_Enabled: 0
   m_AgentTypeID: 0
   m_Radius: 0.29
   m_Speed: 2.5
@@ -198,8 +198,8 @@ NavMeshAgent:
   m_AutoTraverseOffMeshLink: 1
   m_AutoBraking: 1
   m_AutoRepath: 1
-  m_Height: 0.88
-  m_BaseOffset: 0.4
+  m_Height: 1.33
+  m_BaseOffset: 0.67
   m_WalkableMask: 4294967295
   m_ObstacleAvoidanceType: 4
 --- !u!136 &4342157198320844701
@@ -212,8 +212,8 @@ CapsuleCollider:
   m_Material: {fileID: 0}
   m_IsTrigger: 0
   m_Enabled: 1
-  m_Radius: 0.24
-  m_Height: 1
+  m_Radius: 0.38
+  m_Height: 1.33
   m_Direction: 1
   m_Center: {x: 0, y: 0, z: 0}
 --- !u!114 &9183049672316543113

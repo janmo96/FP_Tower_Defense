@@ -25,6 +25,9 @@ public class Enemy : MonoBehaviour
 
     private bool isDead = false;
 
+
+    SpawnController spawnController;
+
     NavMeshAgent agent;
     Rigidbody rb;
 
@@ -43,6 +46,8 @@ public class Enemy : MonoBehaviour
         agent.updateRotation = true;
         agent.updatePosition = true;
 
+        spawnController = GameObject.Find("EnemySpawner").GetComponent<SpawnController>();
+
         StartCoroutine(StartingCount());
 
         if (SceneManager.GetActiveScene().name == "Main Menu")
@@ -54,8 +59,9 @@ public class Enemy : MonoBehaviour
 
     IEnumerator StartingCount()
     {
-
-        yield return new WaitForSeconds(10);
+        yield return new WaitForSeconds(2);
+        agent.enabled = true;
+        yield return new WaitForSeconds(20);
         startingPassed = true;
     }
 
@@ -80,30 +86,41 @@ public class Enemy : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if(!agent.isOnNavMesh)
+
+
+        if(agent.isOnNavMesh)
         {
-           agent.enabled = false;
-           agent.enabled = true;
+            agent.enabled = true;
         }
+
+
+        if(agent.enabled)
+
+        { 
+
 
         agent.SetDestination(end.transform.position);
 
         float dist = agent.remainingDistance;
-
-        if (dist != Mathf.Infinity && agent.pathStatus == NavMeshPathStatus.PathComplete && agent.remainingDistance <= 1 && startingPassed)
+      /*      if (startingPassed)
+            {
+                if (dist != Mathf.Infinity && agent.pathStatus == NavMeshPathStatus.PathComplete && agent.remainingDistance <= 1 && startingPassed)
         {
             EndPath();
         }
+            }*/
+        }
+        
 
-    /*   float step = speed * Time.deltaTime;
+        /*   float step = speed * Time.deltaTime;
 
-       Vector3 newDir = Vector3.RotateTowards(transform.forward, target.position, step, 0.0f);
+           Vector3 newDir = Vector3.RotateTowards(transform.forward, target.position, step, 0.0f);
 
-        Quaternion q = Quaternion.LookRotation(target.position - transform.position);
-        transform.rotation = Quaternion.RotateTowards(transform.rotation, q, 5.0f * Time.deltaTime);
+            Quaternion q = Quaternion.LookRotation(target.position - transform.position);
+            transform.rotation = Quaternion.RotateTowards(transform.rotation, q, 5.0f * Time.deltaTime);
 
-       //transform.LookAt(target);
-       */
+           //transform.LookAt(target);
+           */
     }
 
     private void FixedUpdate()
@@ -115,11 +132,13 @@ public class Enemy : MonoBehaviour
 
     void EndPath()
     {
+        spawnController.enemiesAlive--;
         Destroy(this.gameObject);
     }
 
     void Die()
     {
+        spawnController.enemiesAlive--;
         isDead = true;
         PlayerStats.money += 50;
 

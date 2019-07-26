@@ -14,6 +14,8 @@ public class GameManager : MonoBehaviour
 
     public GameObject Menu;
 
+
+
     bool isMenu;
     // Start is called before the first frame update
     void Start()
@@ -23,7 +25,7 @@ public class GameManager : MonoBehaviour
 
         Enemies = GameObject.Find("Enemies");
 
-        start.GetComponent<Renderer>().enabled = false;
+
 
 
 
@@ -79,8 +81,8 @@ public class GameManager : MonoBehaviour
 
     IEnumerator SpawnEnemy()
     {
-        GameObject enemyInstance = Instantiate(enemy, start.transform.position, Quaternion.identity);
-        enemyInstance.transform.SetParent(Enemies.transform);
+
+
         yield return new WaitForSeconds(3);
         CorountineStarter();
     }

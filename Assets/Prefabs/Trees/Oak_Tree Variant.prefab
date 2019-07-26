@@ -32,6 +32,22 @@ MonoBehaviour:
     type: 3}
   poplarTree: {fileID: 8505484112670856952, guid: 77ffd4d83fdab304aa04842c37e4d89a,
     type: 3}
+--- !u!54 &5703924666282588829
+Rigidbody:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4638775300705350179}
+  serializedVersion: 2
+  m_Mass: 1
+  m_Drag: 0
+  m_AngularDrag: 0.05
+  m_UseGravity: 0
+  m_IsKinematic: 1
+  m_Interpolate: 0
+  m_Constraints: 0
+  m_CollisionDetection: 0
 --- !u!1001 &4638775300705252483
 PrefabInstance:
   m_ObjectHideFlags: 0
