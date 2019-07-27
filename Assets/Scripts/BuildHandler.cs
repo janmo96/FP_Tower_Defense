@@ -15,19 +15,12 @@ public class BuildHandler : MonoBehaviour
     public GameObject currentPlaceableObject;
     Renderer[] renderers;
 
-   public Material originalMatRoof;
-    public Material canPlaceMatRoof;
-    public Material cantPlaceMatRoof;
-    public Material originalMatTower;
-    public Material canPlaceMatTower;
-    public Material cantPlaceMatTower;
-    public Material windowBlack;
-    public Material windowFadedBlack;
+    //--TowerMatArrays--//
 
-    Material[] materials;
-
-    GameObject roof;
-    GameObject tower;
+        [Header("Archery Tower")]
+        //Archery Tower//
+    public Material[] ArcheryTowerMats;
+    public Material[] ArcheryTowerTransparentMats;
 
     CollisionCheck collisionCheck;
 
@@ -36,12 +29,7 @@ public class BuildHandler : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-       animator = buildPanel.GetComponent<Animator>();
-
-        
-
-
-        
+       animator = buildPanel.GetComponent<Animator>(); 
     }
 
     // Update is called once per frame
@@ -79,29 +67,44 @@ public class BuildHandler : MonoBehaviour
                     Destroy(currentPlaceableObject);
                 } else
                 {
-                    if(canBuild) { 
+                    if (canBuild) {
 
-                    currentPlaceableObject = Instantiate(towerPrefab);
-                    GameObject towerObj = currentPlaceableObject.transform.GetChild(1).gameObject;
-                    roof = towerObj.transform.GetChild(0).gameObject;
-                    tower = towerObj.transform.GetChild(1).gameObject;
-                   // tower.GetComponent<MeshCollider>().isTrigger = true;
-                        roof.GetComponent<Renderer>().material = canPlaceMatRoof;
-                    Material[] towerMats = tower.GetComponent<Renderer>().materials;
-                    towerMats[0] = canPlaceMatTower;
-                    towerMats[1] = windowFadedBlack;
-
-                    tower.GetComponent<Renderer>().materials = towerMats;
-
-                    } 
+                        currentPlaceableObject = Instantiate(towerPrefab);
+                        GameObject towerObj = currentPlaceableObject;
+                        if (currentPlaceableObject.name == "ArcheryTower") {
+                            Material[] mats = towerObj.GetComponent<Renderer>().materials;
+                            mats[0] = ArcheryTowerTransparentMats[0];
+                            mats[1] = ArcheryTowerTransparentMats[1];
+                            mats[2] = ArcheryTowerTransparentMats[2];
+                            mats[3] = ArcheryTowerTransparentMats[3];
+                            mats[4] = ArcheryTowerTransparentMats[4];
 
 
+                        }
+                    } else
+                    {
+                        GameObject towerObj = currentPlaceableObject;
+                        if (currentPlaceableObject.name == "ArcheryTower")
+                        {
+                            Material[] mats = towerObj.GetComponent<Renderer>().materials;
+                            mats[0] = ArcheryTowerTransparentMats[5];
+                            mats[1] = ArcheryTowerTransparentMats[6];
+                            mats[2] = ArcheryTowerTransparentMats[7];
+                            mats[3] = ArcheryTowerTransparentMats[8];
+                            mats[4] = ArcheryTowerTransparentMats[9];
 
+                            towerObj.GetComponent<Renderer>().materials = mats;
+                        }
+
+
+
+                    }
                 }
 
 
             }
         }
+
 
 
         if (currentPlaceableObject != null)
@@ -123,32 +126,41 @@ public class BuildHandler : MonoBehaviour
 
         if (!canBuild)
         {
-            GameObject towerObj = currentPlaceableObject.transform.GetChild(1).gameObject;
-            roof = towerObj.transform.GetChild(0).gameObject;
-            tower = towerObj.transform.GetChild(1).gameObject;
-            // tower.GetComponent<MeshCollider>().isTrigger = true;
-            roof.GetComponent<Renderer>().material = cantPlaceMatRoof;
-            Material[] towerMats = tower.GetComponent<Renderer>().materials;
-            towerMats[0] = cantPlaceMatTower;
-            towerMats[1] = windowFadedBlack;
 
-            tower.GetComponent<Renderer>().materials = towerMats;
+                GameObject towerObj = currentPlaceableObject;
+                if (currentPlaceableObject.name == "ArcheryTower")
+                {
+                    Material[] mats = towerObj.GetComponent<Renderer>().materials;
+                    mats[0] = ArcheryTowerTransparentMats[5];
+                    mats[1] = ArcheryTowerTransparentMats[6];
+                    mats[2] = ArcheryTowerTransparentMats[7];
+                    mats[3] = ArcheryTowerTransparentMats[8];
+                    mats[4] = ArcheryTowerTransparentMats[9];
+
+                    towerObj.GetComponent<Renderer>().materials = mats;
+                }
+
+
         } else
         {
-
-            GameObject towerObj = currentPlaceableObject.transform.GetChild(1).gameObject;
-            roof = towerObj.transform.GetChild(0).gameObject;
-            tower = towerObj.transform.GetChild(1).gameObject;
-            // tower.GetComponent<MeshCollider>().isTrigger = true;
-            roof.GetComponent<Renderer>().material = canPlaceMatRoof;
-            Material[] towerMats = tower.GetComponent<Renderer>().materials;
-            towerMats[0] = canPlaceMatTower;
-            towerMats[1] = windowFadedBlack;
-
-            tower.GetComponent<Renderer>().materials = towerMats;
+                GameObject towerObj = currentPlaceableObject;
+                if (currentPlaceableObject.name == "ArcheryTower")
+                {
+                    Material[] mats = towerObj.GetComponent<Renderer>().materials;
+                    mats[0] = ArcheryTowerTransparentMats[0];
+                    mats[1] = ArcheryTowerTransparentMats[1];
+                    mats[2] = ArcheryTowerTransparentMats[2];
+                    mats[3] = ArcheryTowerTransparentMats[3];
+                    mats[4] = ArcheryTowerTransparentMats[4];
 
 
-        }
+                }
+
+
+
+
+
+            }
 
         }
 
@@ -186,15 +198,7 @@ public class BuildHandler : MonoBehaviour
             if(canBuild) { 
 
             GameObject towerObj = currentPlaceableObject.transform.GetChild(1).gameObject;
-            roof = towerObj.transform.GetChild(0).gameObject;
-            tower = towerObj.transform.GetChild(1).gameObject;
                 currentPlaceableObject.GetComponent<Collider>().isTrigger = false;
-                roof.GetComponent<Renderer>().material = originalMatRoof;
-            Material[] towerMats = tower.GetComponent<Renderer>().materials;
-            towerMats[0] = originalMatTower;
-            towerMats[1] = windowBlack;
-
-            tower.GetComponent<Renderer>().materials = towerMats;
                 currentPlaceableObject.layer = 12;
                /* Rigidbody rb = towerObj.AddComponent<Rigidbody>();
                 rb.useGravity = false;
