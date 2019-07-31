@@ -21,6 +21,7 @@ public class MiningScript : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        
         inventory = GameObject.Find("Player").GetComponent<Inventory>();
         itemsRecieved = GameObject.Find("GameManager").GetComponent<ItemsRecieved>();
         buildHandler = GameObject.Find("GameManager").GetComponent<BuildHandler>();

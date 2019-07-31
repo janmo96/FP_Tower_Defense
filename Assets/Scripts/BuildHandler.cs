@@ -10,6 +10,8 @@ public class BuildHandler : MonoBehaviour
     public GameObject buildPanel;
     bool menuOpen = false;
 
+
+    [Header("Prefabs")]
     public GameObject towerPrefab;
     [HideInInspector]
     public GameObject currentPlaceableObject;
@@ -21,6 +23,11 @@ public class BuildHandler : MonoBehaviour
         //Archery Tower//
     public Material[] ArcheryTowerMats;
     public Material[] ArcheryTowerTransparentMats;
+
+    [Header("Misc")]
+    public int speed;
+
+    public Material[] currentMats;
 
     CollisionCheck collisionCheck;
 
@@ -35,6 +42,11 @@ public class BuildHandler : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+
+        if(currentPlaceableObject != null)
+        currentMats = currentPlaceableObject.transform.GetChild(0).gameObject.GetComponent<Renderer>().materials;
+
+
 
         if (Input.GetMouseButtonDown(1))
         {
@@ -70,8 +82,9 @@ public class BuildHandler : MonoBehaviour
                     if (canBuild) {
 
                         currentPlaceableObject = Instantiate(towerPrefab);
-                        GameObject towerObj = currentPlaceableObject;
-                        if (currentPlaceableObject.name == "ArcheryTower") {
+                        GameObject towerObj = currentPlaceableObject.transform.GetChild(0).gameObject;
+                        if (currentPlaceableObject.tag == "ArcherTower" && currentPlaceableObject != null)
+                        {
                             Material[] mats = towerObj.GetComponent<Renderer>().materials;
                             mats[0] = ArcheryTowerTransparentMats[0];
                             mats[1] = ArcheryTowerTransparentMats[1];
@@ -79,12 +92,12 @@ public class BuildHandler : MonoBehaviour
                             mats[3] = ArcheryTowerTransparentMats[3];
                             mats[4] = ArcheryTowerTransparentMats[4];
 
-
+                            towerObj.transform.GetComponent<Renderer>().materials = mats;
                         }
                     } else
                     {
-                        GameObject towerObj = currentPlaceableObject;
-                        if (currentPlaceableObject.name == "ArcheryTower")
+                        GameObject towerObj = currentPlaceableObject.transform.GetChild(0).gameObject;
+                        if (currentPlaceableObject.tag == "ArcherTower" && currentPlaceableObject != null)
                         {
                             Material[] mats = towerObj.GetComponent<Renderer>().materials;
                             mats[0] = ArcheryTowerTransparentMats[5];
@@ -93,7 +106,7 @@ public class BuildHandler : MonoBehaviour
                             mats[3] = ArcheryTowerTransparentMats[8];
                             mats[4] = ArcheryTowerTransparentMats[9];
 
-                            towerObj.GetComponent<Renderer>().materials = mats;
+                            towerObj.transform.GetChild(0).GetComponent<Renderer>().materials = mats;
                         }
 
 
@@ -109,9 +122,10 @@ public class BuildHandler : MonoBehaviour
 
         if (currentPlaceableObject != null)
         {
-            collisionCheck = currentPlaceableObject.GetComponent<CollisionCheck>();
+            collisionCheck = currentPlaceableObject.transform.GetChild(0).GetComponent<CollisionCheck>();
             MoveCurrentPrefabToMouse();
             ReleaseIfClicked();
+            RotateObject();
 
             if (collisionCheck.collisions.Count > 0)
             {
@@ -124,46 +138,39 @@ public class BuildHandler : MonoBehaviour
        
 
 
-        if (!canBuild)
+        if (!canBuild && currentPlaceableObject != null)
         {
 
-                GameObject towerObj = currentPlaceableObject;
-                if (currentPlaceableObject.name == "ArcheryTower")
+                GameObject towerObj = currentPlaceableObject.transform.GetChild(0).gameObject;
+                if (currentPlaceableObject.tag == "ArcherTower" && currentPlaceableObject != null)
                 {
-                    Material[] mats = towerObj.GetComponent<Renderer>().materials;
+                    Material[] mats = towerObj.gameObject.GetComponent<Renderer>().materials;
                     mats[0] = ArcheryTowerTransparentMats[5];
                     mats[1] = ArcheryTowerTransparentMats[6];
                     mats[2] = ArcheryTowerTransparentMats[7];
                     mats[3] = ArcheryTowerTransparentMats[8];
                     mats[4] = ArcheryTowerTransparentMats[9];
 
-                    towerObj.GetComponent<Renderer>().materials = mats;
+                    towerObj.transform.GetComponent<Renderer>().materials = mats;
                 }
 
 
-        } else
+        } else if(canBuild && currentPlaceableObject != null)
         {
-                GameObject towerObj = currentPlaceableObject;
-                if (currentPlaceableObject.name == "ArcheryTower")
+                GameObject towerObj = currentPlaceableObject.transform.GetChild(0).gameObject;
+                if (currentPlaceableObject.tag == "ArcherTower" && currentPlaceableObject != null)
                 {
-                    Material[] mats = towerObj.GetComponent<Renderer>().materials;
+                    Material[] mats = towerObj.gameObject.GetComponent<Renderer>().materials;
                     mats[0] = ArcheryTowerTransparentMats[0];
                     mats[1] = ArcheryTowerTransparentMats[1];
                     mats[2] = ArcheryTowerTransparentMats[2];
                     mats[3] = ArcheryTowerTransparentMats[3];
                     mats[4] = ArcheryTowerTransparentMats[4];
 
-
+                    towerObj.transform.GetComponent<Renderer>().materials = mats;
                 }
-
-
-
-
-
             }
-
         }
-
     }
 
 
@@ -177,10 +184,10 @@ public class BuildHandler : MonoBehaviour
            
             if(hitInfo.transform.gameObject.layer == 9 && hitInfo.transform.gameObject.layer != 10 || hitInfo.transform.gameObject.layer != 11) { 
             currentPlaceableObject.transform.position = hitInfo.point;
-            currentPlaceableObject.transform.rotation = Quaternion.identity; //Quaternion.FromToRotation(Vector3.up, hitInfo.normal);
+            //currentPlaceableObject.transform.rotation = Quaternion.identity; //Quaternion.FromToRotation(Vector3.up, hitInfo.normal);
 
 
-                GameObject towerObj = currentPlaceableObject.transform.GetChild(1).gameObject;
+                GameObject towerObj = currentPlaceableObject.transform.GetChild(0).gameObject;
 
 
 
@@ -197,16 +204,33 @@ public class BuildHandler : MonoBehaviour
         {
             if(canBuild) { 
 
-            GameObject towerObj = currentPlaceableObject.transform.GetChild(1).gameObject;
-                currentPlaceableObject.GetComponent<Collider>().isTrigger = false;
+            GameObject towerObj = currentPlaceableObject.transform.GetChild(0).gameObject;
+                currentPlaceableObject.transform.GetChild(0).GetComponent<Collider>().isTrigger = false;
                 currentPlaceableObject.layer = 12;
-               /* Rigidbody rb = towerObj.AddComponent<Rigidbody>();
-                rb.useGravity = false;
-                rb.isKinematic = true;
-                */
+                /* Rigidbody rb = towerObj.AddComponent<Rigidbody>();
+                 rb.useGravity = false;
+                 rb.isKinematic = true;
+                 */
+                if (currentPlaceableObject.tag == "ArcherTower" && currentPlaceableObject != null)
+                {
+                    Material[] mats = towerObj.gameObject.GetComponent<Renderer>().materials;
+                    mats[0] = ArcheryTowerMats[4];
+                    mats[1] = ArcheryTowerMats[3];
+                    mats[2] = ArcheryTowerMats[0];
+                    mats[3] = ArcheryTowerMats[1];
+                    mats[4] = ArcheryTowerMats[2];
+
+                    towerObj.transform.GetComponent<Renderer>().materials = mats;
+
+                    currentMats = currentPlaceableObject.transform.GetChild(0).gameObject.GetComponent<Renderer>().materials;
+
+                    towerObj.GetComponent<Turret>().enabled = true;
+
+                }
 
 
-            currentPlaceableObject = null;
+                currentPlaceableObject = null;
+
             } else
             {
                 collisionCheck = currentPlaceableObject.GetComponent<CollisionCheck>();
@@ -216,5 +240,10 @@ public class BuildHandler : MonoBehaviour
         }
     }
 
+    void RotateObject()
+    {
+        if(currentPlaceableObject != null)
+       currentPlaceableObject.transform.Rotate(Vector3.up * speed * Input.GetAxis("Mouse ScrollWheel") * Time.deltaTime);
+    }
 
 }

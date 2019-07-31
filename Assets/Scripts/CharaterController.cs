@@ -24,8 +24,7 @@ public class CharaterController : MonoBehaviour
     private float mouseY;
 
     Rigidbody rb;
-    public GameObject turretbuildmenu;
-    public GameObject turretselectmenu;
+
     public GameObject menu;
     // Start is called before the first frame update
     void Start()
@@ -41,7 +40,7 @@ public class CharaterController : MonoBehaviour
     {
         Debug.Log(Cursor.lockState);
 
-        if (turretbuildmenu.activeSelf || turretselectmenu.activeSelf || menu.activeSelf)
+        if (menu.activeSelf)
         {
             isMenuOpen = true;
         } else

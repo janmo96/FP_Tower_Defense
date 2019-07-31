@@ -10,9 +10,9 @@ GameObject:
   m_Component:
   - component: {fileID: 3130705406068036071}
   - component: {fileID: 3130705406068036072}
-  - component: {fileID: 3130705406068036070}
-  - component: {fileID: 3130705406068036069}
   - component: {fileID: 3130705406068036068}
+  - component: {fileID: 121621282}
+  - component: {fileID: 121621285}
   m_Layer: 0
   m_Name: GameManager
   m_TagString: Untagged
@@ -49,50 +49,8 @@ MonoBehaviour:
   start: {fileID: 0}
   end: {fileID: 0}
   enemy: {fileID: 2421435215236478497, guid: 42a5d5d5afbe91047a298ec525abf13d, type: 3}
---- !u!114 &3130705406068036070
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3130705406068036073}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 5fcb1aea79502964c85a10087f85efcc, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  turretsToBuild: {fileID: 0}
-  StandartTurret:
-    prefab: {fileID: 2000659892083809279, guid: 0baefcd78ffc88f4197098351a9011a0,
-      type: 3}
-    cost: 50
-    upgradedPrefab: {fileID: 0}
-    upgradeCost: 0
-  AdvancedTurret:
-    prefab: {fileID: 0}
-    cost: 0
-    upgradedPrefab: {fileID: 0}
-    upgradeCost: 0
-  canClose: 0
-  offset: {x: 0, y: 0, z: 0}
-  originalMat: {fileID: 2100004, guid: 287e58b064368434082cc49576b482be, type: 3}
---- !u!114 &3130705406068036069
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3130705406068036073}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: e9278da3d83b2964b82605bc2cd648b2, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  NodePrefab: {fileID: 8044205646964254562, guid: 3c8ed082dbeb1394fa0500c9b1072dee,
-    type: 3}
-  turretUI: {fileID: 0}
-  ArcheryTurretCost: 50
-  canClose: 0
+  Enemies: {fileID: 0}
+  Menu: {fileID: 0}
 --- !u!114 &3130705406068036068
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -106,3 +64,54 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   moneyText: {fileID: 0}
+--- !u!114 &121621282
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3130705406068036073}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 438d00ca1523eb6438b19c9fd482d4f5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Texts: {fileID: 0}
+  textInstance: {fileID: 512222821162799838, guid: be5509245cf242f4d82c42731942bc2c,
+    type: 3}
+--- !u!114 &121621285
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3130705406068036073}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 856f6339c8880624fa34c4ce4b76c664, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  buildPanel: {fileID: 0}
+  towerPrefab: {fileID: 445866035926965391, guid: f30e858bd049a7c4baa1382cf22d4160,
+    type: 3}
+  currentPlaceableObject: {fileID: 0}
+  ArcheryTowerMats:
+  - {fileID: 2100000, guid: 9dee30c58732f9f439e5cd9852356e12, type: 2}
+  - {fileID: 2100000, guid: 2bceb27782e0dd7468982b17f390859a, type: 2}
+  - {fileID: 2100000, guid: 36f58fc742096da47892428bcde49885, type: 2}
+  - {fileID: 2100000, guid: d041d2281b4aa4948a4f80095e47f658, type: 2}
+  - {fileID: 2100000, guid: f0aaed38c8eaf7c4eb03554371b0e5aa, type: 2}
+  ArcheryTowerTransparentMats:
+  - {fileID: 2100000, guid: 2a0cf3613f455704c96675fff4764a6b, type: 2}
+  - {fileID: 2100000, guid: 6c23125e9cc04e248a622da1629a8a52, type: 2}
+  - {fileID: 2100000, guid: f2cb3a9256de3544f954fdb924aff59a, type: 2}
+  - {fileID: 2100000, guid: 912f76732b8bc764b8a63386ef2fcfef, type: 2}
+  - {fileID: 2100000, guid: 0cc8e95acd73ca34da21021999347dd1, type: 2}
+  - {fileID: 2100000, guid: 511f4547e02f55c42b702e774f743af3, type: 2}
+  - {fileID: 2100000, guid: a339101f4d364e04da2da1859ac6ce39, type: 2}
+  - {fileID: 2100000, guid: 9fe6676bcd10cd34c97fcd926e870dec, type: 2}
+  - {fileID: 2100000, guid: f7f91c0e9c1acdc4b8dca1245f886263, type: 2}
+  - {fileID: 2100000, guid: f5cd52dd7b373a84c9a3be32f3edc31d, type: 2}
+  speed: 5000
+  currentMats: []
+  canBuild: 1

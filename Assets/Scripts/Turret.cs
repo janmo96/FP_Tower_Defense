@@ -54,7 +54,7 @@ public class Turret : MonoBehaviour
             isMenu = true;
         }
         if(!isMenu)
-        turretUI = GameObject.Find("GameManager").GetComponent<TurretModUI>().turretUI;
+        //turretUI = GameObject.Find("GameManager").GetComponent<TurretModUI>().turretUI;
 
         InvokeRepeating("UpdateTarget", 0f, 0.5f);
     }

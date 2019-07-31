@@ -13,9 +13,10 @@ GameObject:
   - component: {fileID: 945401807}
   - component: {fileID: 945401806}
   - component: {fileID: 115993484884929569}
+  - component: {fileID: 2926534664342638882}
   m_Layer: 0
   m_Name: Rock3
-  m_TagString: Untagged
+  m_TagString: Rock2
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -106,3 +107,26 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   rockHealth: 300
+  fracturedRock1: {fileID: 9069993750545272869, guid: 62b633b3f56e83b4ba52c7fc9db15f1f,
+    type: 3}
+  fracturedRock2: {fileID: 6426164679145994760, guid: 1aebbc163c761204d8941cc6020b867f,
+    type: 3}
+  fracturedRock3: {fileID: 5847592787917569376, guid: 1756d0b4fefee5048a21326d84486717,
+    type: 3}
+  fracturedRock4: {fileID: 0}
+--- !u!208 &2926534664342638882
+NavMeshObstacle:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 945401805}
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Shape: 0
+  m_Extents: {x: 0.01, y: 0.00001, z: 0.01}
+  m_MoveThreshold: 0.1
+  m_Carve: 1
+  m_CarveOnlyStationary: 1
+  m_Center: {x: 0, y: -0.002, z: 0.004}
+  m_TimeToStationary: 0.5

@@ -27347,7 +27347,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   force: 100
   radius: 50
-  upModifier: 0
+  upModifier: 10
 --- !u!1 &9096434392767684417
 GameObject:
   m_ObjectHideFlags: 0

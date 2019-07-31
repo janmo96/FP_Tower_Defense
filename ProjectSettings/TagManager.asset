@@ -16,6 +16,7 @@ TagManager:
   - Rock3
   - Rock4
   - End
+  - ArcherTower
   layers:
   - Default
   - TransparentFX
