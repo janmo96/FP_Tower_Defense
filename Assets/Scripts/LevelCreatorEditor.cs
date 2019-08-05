@@ -19,6 +19,12 @@ public class LevelCreatorEditor : Editor
         {
             levelCreator.GenerateTerrain();
         }
+
+
+        if (GUILayout.Button("Destroy Terrain"))
+        {
+            levelCreator.DestroyEnvironement();
+        }
     }
 
 }

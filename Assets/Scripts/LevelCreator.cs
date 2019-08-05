@@ -16,8 +16,11 @@ public class LevelCreator : MonoBehaviour
     public List<Pool> RockPools;
 
 
+
+
     public GameObject Rocks;
     public GameObject Trees;
+    public GameObject End;
 
     private int terrainWidth;
     private int terrainLength;
@@ -36,25 +39,51 @@ public class LevelCreator : MonoBehaviour
         terrainPosZ = (int)terrain.transform.position.z;
 
 
+        Vector3 TerrainCenter = new Vector3(terrainWidth/2, 0, terrainWidth / 2);
 
-       // SpawnTrees();
+        Instantiate(End, new Vector3(TerrainCenter.x,0.4f,TerrainCenter.z), Quaternion.identity);
+
+
+
+        SpawnTrees();
     }
 
-
+    public void DestroyTerrain()
+    {
+            foreach (Transform child in Trees.transform)
+            {
+                DestroyImmediate(child);
+          
+            }
+        
+            foreach (Transform rock in Rocks.transform)
+            {
+                DestroyImmediate(rock);
+            }
+        
+    }
 
 
     public void GenerateTerrain()
     {
+
+       // DestroyTerrain();
+
         SpawnTrees();
+
+        
+    }
+
+
+    public void DestroyEnvironement()
+    {
+        DestroyTerrain();
     }
 
 
     void Update()
     {
-        if (Input.GetKeyDown(KeyCode.Q))
-        {
-            SpawnTrees();
-        }
+
     }
 
 
@@ -65,7 +94,9 @@ public class LevelCreator : MonoBehaviour
         foreach (Pool treePool in treePools)
         {
             Queue<GameObject> objectPool = new Queue<GameObject>();
+            treePool.amount = Random.Range(Mathf.RoundToInt(500), Mathf.RoundToInt(2000));
 
+            //treePool.amount = Random.Range(Mathf.RoundToInt(400), Mathf.RoundToInt(800));
             for (int i = 0; i < treePool.amount; i++)
             {
                 int posx = Random.Range(terrainPosX, terrainPosX + terrainWidth);
@@ -96,5 +127,6 @@ public class LevelCreator : MonoBehaviour
         public string tag;
         public GameObject prefab;
         public int amount;
+
     }
 

@@ -30,6 +30,22 @@ CapsuleCollider:
   m_Height: 0.06
   m_Direction: 2
   m_Center: {x: 0.00041702855, y: -0.0009605505, z: 0.026472842}
+--- !u!208 &5353851346398008961
+NavMeshObstacle:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4638775300705350179}
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Shape: 1
+  m_Extents: {x: 0.01, y: 0.01, z: 0.027}
+  m_MoveThreshold: 0.1
+  m_Carve: 1
+  m_CarveOnlyStationary: 1
+  m_Center: {x: 0, y: -0.001, z: 0.026}
+  m_TimeToStationary: 0.5
 --- !u!114 &4948981928683495996
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -48,22 +64,6 @@ MonoBehaviour:
     type: 3}
   poplarTree: {fileID: 8505484112670856952, guid: 77ffd4d83fdab304aa04842c37e4d89a,
     type: 3}
---- !u!208 &5353851346398008961
-NavMeshObstacle:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4638775300705350179}
-  m_Enabled: 1
-  serializedVersion: 3
-  m_Shape: 1
-  m_Extents: {x: 0.01, y: 0.01, z: 0.027}
-  m_MoveThreshold: 0.1
-  m_Carve: 1
-  m_CarveOnlyStationary: 1
-  m_Center: {x: 0, y: -0.001, z: 0.026}
-  m_TimeToStationary: 0.5
 --- !u!1001 &4638775300705252483
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -78,6 +78,10 @@ PrefabInstance:
     - target: {fileID: 100000, guid: ccadaa4d0c1baf74492fc68cc1dfd7ad, type: 3}
       propertyPath: m_TagString
       value: Tree1
+      objectReference: {fileID: 0}
+    - target: {fileID: 100000, guid: ccadaa4d0c1baf74492fc68cc1dfd7ad, type: 3}
+      propertyPath: m_Layer
+      value: 11
       objectReference: {fileID: 0}
     - target: {fileID: 400000, guid: ccadaa4d0c1baf74492fc68cc1dfd7ad, type: 3}
       propertyPath: m_LocalPosition.x

@@ -58,6 +58,10 @@ PrefabInstance:
       propertyPath: m_TagString
       value: Tree2
       objectReference: {fileID: 0}
+    - target: {fileID: 100000, guid: 8d458f08d88711a43a2432ab5243b7f1, type: 3}
+      propertyPath: m_Layer
+      value: 13
+      objectReference: {fileID: 0}
     - target: {fileID: 400000, guid: 8d458f08d88711a43a2432ab5243b7f1, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0

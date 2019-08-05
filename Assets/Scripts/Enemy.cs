@@ -87,8 +87,13 @@ public class Enemy : MonoBehaviour
     void Update()
     {
 
+        if(end == null)
+        {
+            end = GameObject.FindGameObjectWithTag("End");
+        }
 
-        if(agent.isOnNavMesh)
+
+        if (agent.isOnNavMesh)
         {
             agent.enabled = true;
         }
