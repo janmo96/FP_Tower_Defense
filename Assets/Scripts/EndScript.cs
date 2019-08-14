@@ -32,8 +32,10 @@ public class EndScript : MonoBehaviour
     {
         if (col.gameObject.tag != "Player")
         { 
+            if(col.gameObject.tag != "ArcherTower") { 
             spawnController.enemiesAlive--;
             Destroy(col.transform.gameObject);
+            }
         }
     }
 

@@ -137,8 +137,8 @@ public class Enemy : MonoBehaviour
 
     void EndPath()
     {
-        spawnController.enemiesAlive--;
-        Destroy(this.gameObject);
+        //spawnController.enemiesAlive--;
+       // Destroy(this.gameObject);
     }
 
     void Die()

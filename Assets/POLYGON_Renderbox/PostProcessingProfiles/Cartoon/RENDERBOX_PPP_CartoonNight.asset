@@ -3,9 +3,8 @@
 --- !u!114 &11400000
 MonoBehaviour:
   m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
@@ -43,7 +42,7 @@ MonoBehaviour:
   ambientOcclusion:
     m_Enabled: 1
     m_Settings:
-      intensity: 0.54
+      intensity: 0.75
       radius: 0.64
       sampleCount: 16
       downsampling: 0
@@ -98,14 +97,14 @@ MonoBehaviour:
       logMin: -8
       logMax: 4
   bloom:
-    m_Enabled: 0
+    m_Enabled: 1
     m_Settings:
       bloom:
         intensity: 0.91
         threshold: 1.12
         softKnee: 1
-        radius: 3.31
-        antiFlicker: 1
+        radius: 5.76
+        antiFlicker: 0
       lensDirt:
         texture: {fileID: 0}
         intensity: 3
@@ -118,7 +117,7 @@ MonoBehaviour:
         neutralWhiteIn: 10
         neutralBlackOut: -0.0156
         neutralWhiteOut: 11.56
-        neutralWhiteLevel: 8.94
+        neutralWhiteLevel: 4.39
         neutralWhiteClip: 8.61
       basic:
         postExposure: 0
@@ -147,24 +146,18 @@ MonoBehaviour:
           curve:
             serializedVersion: 2
             m_Curve:
-            - serializedVersion: 3
+            - serializedVersion: 2
               time: 0
               value: 0
               inSlope: 1
               outSlope: 1
               tangentMode: 0
-              weightedMode: 0
-              inWeight: 0.33333334
-              outWeight: 0.33333334
-            - serializedVersion: 3
+            - serializedVersion: 2
               time: 1
               value: 1
               inSlope: 1
               outSlope: 1
               tangentMode: 0
-              weightedMode: 0
-              inWeight: 0.33333334
-              outWeight: 0.33333334
             m_PreInfinity: 2
             m_PostInfinity: 2
             m_RotationOrder: 0
@@ -175,24 +168,18 @@ MonoBehaviour:
           curve:
             serializedVersion: 2
             m_Curve:
-            - serializedVersion: 3
+            - serializedVersion: 2
               time: 0
               value: 0
               inSlope: 1
               outSlope: 1
               tangentMode: 0
-              weightedMode: 0
-              inWeight: 0.33333334
-              outWeight: 0.33333334
-            - serializedVersion: 3
+            - serializedVersion: 2
               time: 1
               value: 1
               inSlope: 1
               outSlope: 1
               tangentMode: 0
-              weightedMode: 0
-              inWeight: 0.33333334
-              outWeight: 0.33333334
             m_PreInfinity: 2
             m_PostInfinity: 2
             m_RotationOrder: 4
@@ -203,24 +190,18 @@ MonoBehaviour:
           curve:
             serializedVersion: 2
             m_Curve:
-            - serializedVersion: 3
+            - serializedVersion: 2
               time: 0
               value: 0
               inSlope: 1
               outSlope: 1
               tangentMode: 0
-              weightedMode: 0
-              inWeight: 0.33333334
-              outWeight: 0.33333334
-            - serializedVersion: 3
+            - serializedVersion: 2
               time: 1
               value: 1
               inSlope: 1
               outSlope: 1
               tangentMode: 0
-              weightedMode: 0
-              inWeight: 0.33333334
-              outWeight: 0.33333334
             m_PreInfinity: 2
             m_PostInfinity: 2
             m_RotationOrder: 4
@@ -231,24 +212,18 @@ MonoBehaviour:
           curve:
             serializedVersion: 2
             m_Curve:
-            - serializedVersion: 3
+            - serializedVersion: 2
               time: 0
               value: 0
               inSlope: 1
               outSlope: 1
               tangentMode: 0
-              weightedMode: 0
-              inWeight: 0.33333334
-              outWeight: 0.33333334
-            - serializedVersion: 3
+            - serializedVersion: 2
               time: 1
               value: 1
               inSlope: 1
               outSlope: 1
               tangentMode: 0
-              weightedMode: 0
-              inWeight: 0.33333334
-              outWeight: 0.33333334
             m_PreInfinity: 2
             m_PostInfinity: 2
             m_RotationOrder: 4
@@ -301,33 +276,33 @@ MonoBehaviour:
         e_CurveG: 0
         e_CurveB: 0
   userLut:
-    m_Enabled: 1
+    m_Enabled: 0
     m_Settings:
       lut: {fileID: 0}
       contribution: 1
   chromaticAberration:
-    m_Enabled: 1
+    m_Enabled: 0
     m_Settings:
       spectralTexture: {fileID: 0}
-      intensity: 0
+      intensity: 0.1
   grain:
     m_Enabled: 0
     m_Settings:
       colored: 1
-      intensity: 0
-      size: 0.3
+      intensity: 0.04
+      size: 3
       luminanceContribution: 0
   vignette:
     m_Enabled: 1
     m_Settings:
-      mode: 1
+      mode: 0
       color: {r: 0, g: 0, b: 0, a: 1}
       center: {x: 0.5, y: 0.5}
       intensity: 0.332
       smoothness: 0.159
       roundness: 1
       mask: {fileID: 0}
-      opacity: 0.527
+      opacity: 1
       rounded: 0
   dithering:
     m_Enabled: 0
